@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { EmployeeForm } from "./form";
+import { Table } from "./table";
 
-function App() {
+const headings = ["Employee Name", "Department", "Actions"];
+const employeeRecord = [
+  {
+    name: "Raheel",
+    department: "Technical Department",
+  },
+  {
+    name: "Ashar",
+    department: "Sis Department",
+  },
+  {
+    name: "Saqib Naseeb",
+    department: "Technical Department",
+  },
+  {
+    name: "Bushra",
+    department: "HCM Department",
+  },
+];
+
+export const App = () => {
+  const [employeeData, setEmployeeData] = useState(employeeRecord);
+  const [selectedEmployee, setSelectedRecord] = useState(undefined);
+  const deleteRecord = (employee) => {
+    const temp = employeeData.filter((record) => record !== employee);
+    //upate state with update record
+    setEmployeeData(temp);
+  };
+
+  const addRecord = (newEmployee) => {
+    setEmployeeData([...employeeData, newEmployee]);
+  };
+
+  const updateRecord = (newRecord) => {
+    const index = employeeData.indexOf(selectedEmployee);
+    const temp = [...employeeData];
+    temp[index] = newRecord;
+    setEmployeeData(temp);
+    setSelectedRecord(undefined);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Table
+        headings={headings}
+        employeeData={employeeData}
+        deleteRecord={deleteRecord}
+        setSelectedRecord={setSelectedRecord}
+      />
+      <EmployeeForm
+        addRecord={addRecord}
+        selectedEmployee={selectedEmployee}
+        updateRecord={updateRecord}
+      />
     </div>
   );
-}
-
-export default App;
+};
