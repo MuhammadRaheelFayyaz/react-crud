@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-crud/static/css/main.ffe60196.css",
+    "main.css": "/react-crud/static/css/main.06291c59.css",
     "main.js": "/react-crud/static/js/main.ebbcbedb.js",
     "index.html": "/react-crud/index.html",
-    "main.ffe60196.css.map": "/react-crud/static/css/main.ffe60196.css.map",
+    "main.06291c59.css.map": "/react-crud/static/css/main.06291c59.css.map",
     "main.ebbcbedb.js.map": "/react-crud/static/js/main.ebbcbedb.js.map"
   },
   "entrypoints": [
-    "static/css/main.ffe60196.css",
+    "static/css/main.06291c59.css",
     "static/js/main.ebbcbedb.js"
   ]
 }
